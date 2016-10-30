@@ -7,11 +7,16 @@
 		<link rel="stylesheet" type="text/css" href="css/quiz.css">
 	</head>
 	<body>
+
 	<div id="myQuiz" ng-controller="QuizController">
 
 		<h1>Test Your Knowledge: <span>Saturn</span></h1>
 		<div class="progress">
-			<div class="{{ ($index === activeQuestion) ? 'on' : 'off' }}" ng-repeat="myQuestion in myQuestions"></div>
+			<div class="
+			{{ ($index === activeQuestion) ? 'on' : 'off' }}
+			{{ (myQuestion.questionState === 'answered') ? 'answered' : 'unanswered' }}
+			{{ (myQuestion.correctness === 'correct') ? 'correct' : 'incorrect'}}
+			" ng-repeat="myQuestion in myQuestions"></div>
 		</div>
 		<div class="intro {{ (activeQuestion > -1) ? 'inactive' : 'active' }}">
 			<h2>Welcome</h2>
@@ -24,24 +29,26 @@
 		" ng-repeat="myQuestion in myQuestions">
 			<p class="txt">{{myQuestion.question}}</p>
 			<p class="ans" 
+				ng-class="{
+				image:Answer.image,
+				selected:isSelected($parent.$index,$index), correct:isCorrect($parent.$index,$index)
+				}"
+				ng-style="{'background-image' 'url({{Answer.image}})'}"
 				ng-click="selectAnswer($parent.$index,$index)"
 				ng-repeat="Answer in myQuestions[$index].answers">{{Answer.text}}
 				</p>
 			<div class="feedback">
-				<p>You are <strong>correct</strong>.</p>
-				<p>Oops! That is not correct.</p>
-				<p>Additional Feedback</p>
-				<div class="btn">Continue</div>
+				<p ng-show="myQuestion.correctness = 'correct'">You are <strong>correct</strong>.</p>
+				<p ng-show="myQuestion.correctness = 'correct'">Oops! That is not correct.</p>
+				<p>{{myQuestion.feedback}}</p>
+				<div class="btn" ng-click="selectContinue()">Continue</div>
 			</div>
 		</div>
-		<div class="results">
+		<div class="results" {{ (totalQuestion === activeQuestions) ? 'active' : 'inactive' }}>
 			<h3>Results</h3>
-			<p>You scored x% by correctly answering x of x questions.</p>
+			<p>You scored {{percentage}}% by correctly answering {{score}} of the total {{totalQuestions}} questions.</p>
 			<p>Use the links below to challenge your friends</p>
-			<div class="share">
-				<a class="btn email" href="#">Email</a>
-				<a class="btn twitter" href="#">Tweet</a>
-			</div>
+			<div class="share" ng-bind-html="createShareLinks(percentage)"></div>
 		</div>
 			
 	</div>
