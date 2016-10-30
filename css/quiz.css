@@ -18,7 +18,7 @@ body { background-color: #fff; padding: 20px; }
 }
 #myQuiz h1 span{
 	display: block; font-weight: 900; font-family: 'Titillium web', sans-serif;
-	font-size: 3.2em; line-heght: 65px; margin-top: -45px;
+	font-size: 3.2em; line-height: 65px; margin-top: -45px;
 }
 
 #myQuiz h2{font-size: 3em; margin:0px; font-weight: 100;}
@@ -103,7 +103,7 @@ visibility: hidden; opacity:0;}
 #myQuiz .results .share a.btn {
 	margin-right:20px; padding: 9px 15px 8px 42px;
 	background-repeat: no-repeat; 
-	background-posiion: 10px 5px;
+	background-position: 10px 5px;
 	background-size: 25px 25px; }
 
 #myQuiz .results .share a.btn.email{background-color: #f0a121; background-image: url(../images/icon_email.svg);}
