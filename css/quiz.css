@@ -51,7 +51,7 @@ body { background-color: #fff; padding: 20px; }
 #myQuiz .intro{ position: absolute; top: 225px; left: 660px; width: 550px;}
 #myQuiz .intro p{ margin: 0px 0px 40px 0px; }
 
-/*Questiona*/
+/*Questions*/
 
 #myQuiz .question {width: 550px; position: absolute; top: 225px; left: 660px;}
 #myQuiz .question .txt{font-size: 1.6em; margin: 0px 0px 20px 0px;}
@@ -110,7 +110,7 @@ visibility: hidden; opacity:0;}
 #myQuiz .results .share a.btn.twitter{background-color: #59adeb; background-image: url(../images/icon_twitter.svg);}
 
 
-#myQuiz .active, #myQuiz .inactive { transition: left 1.5s ease-in-out; }
+/*#myQuiz .active, #myQuiz .inactive { transition: left 1.5s ease-in-out; }*/
 
 #myQuiz .active { left: 40px; }
 

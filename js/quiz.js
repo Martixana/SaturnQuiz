@@ -20,10 +20,10 @@
 
 			if(questionState != 'answered' ){
 				$scope.myQuestions[qIndex].selectedAnswer = aIndex;
-				var correctAnswer = $scope.myQuestions [qIndex].correct;
+				var correctAnswer = $scope.myQuestions[qIndex].correct;
 				$scope.myQuestions[qIndex].correctAnswer = correctAnswer;
 				
-				if( aIndex ===correctAnswer){
+				if( aIndex === correctAnswer){
 					$scope.myQuestions[qIndex].correctness = 'correct';
 					$scope.score += 1;
 				}else{
